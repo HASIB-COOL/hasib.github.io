@@ -602,10 +602,10 @@
         </div>
       </div>
 
-      <form 
+     <form 
     class="contact-form glass"
     id="contactForm"
-    action="https://formsubmit.co/himelhasib2001@gmail.com"
+    action="https://formsubmit.co/ajax/himelhasib2001@gmail.com"
     method="POST"
 >
 
@@ -613,11 +613,15 @@
     <input type="hidden" name="_captcha" value="false">
 
     <!-- Redirect back to website after successful submission -->
-    <input 
-        type="hidden" 
-        name="_next" 
-        value="https://mdhasibulhasann.github.io/"
-    >
+   <input type="hidden" name="_captcha" value="false">
+
+<input 
+    type="hidden" 
+    name="_subject" 
+    value="New Message from Hasibul Hasan Portfolio!"
+>
+
+<input type="text" name="_honey" style="display:none">
 
     <!-- Email Subject -->
     <input 
@@ -713,6 +717,27 @@
     <span>Designed &amp; built with intent.</span>
   </div>
 </footer>
+
+     <!-- Success Popup -->
+<div class="success-popup" id="successPopup">
+  <div class="success-popup-box">
+
+    <div class="success-icon">
+      ✓
+    </div>
+
+    <h3>Message Sent!</h3>
+
+    <p>
+      Thank you for reaching out. Your message has been sent successfully.
+    </p>
+
+    <button id="closePopup">
+      Awesome!
+    </button>
+
+  </div>
+</div>
 
 <script src="script.js"></script>
 
