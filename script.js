@@ -3,28 +3,23 @@
 
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  /* ---------- Cursor glow ---------- */
-  var glow = document.getElementById('cursor-glow');
-  var gx = window.innerWidth/2, gy = window.innerHeight/2, cx = gx, cy = gy;
+/* ---------- Optimized Cursor Glow ---------- */
+var glow = document.getElementById('cursor-glow');
 
-  window.addEventListener('mousemove', function(e){
-    gx = e.clientX;
-    gy = e.clientY;
-  });
+if (glow && window.matchMedia('(pointer: fine)').matches) {
+  var glowFrame;
 
-  function animateGlow(){
-    cx += (gx - cx) * 0.08;
-    cy += (gy - cy) * 0.08;
+  window.addEventListener('mousemove', function(e) {
+    if (glowFrame) return;
 
-    if(glow){
+    glowFrame = requestAnimationFrame(function() {
       glow.style.transform =
-        'translate(' + cx + 'px,' + cy + 'px) translate(-50%,-50%)';
-    }
+        'translate(' + e.clientX + 'px, ' + e.clientY + 'px) translate(-50%, -50%)';
 
-    requestAnimationFrame(animateGlow);
-  }
-
-  animateGlow();
+      glowFrame = null;
+    });
+  }, { passive: true });
+}
 
 
   /* ---------- Scroll progress bar ---------- */
@@ -39,8 +34,18 @@
     progressBar.style.width = pct + '%';
   }
 
-  window.addEventListener('scroll', updateProgress, { passive:true });
-  updateProgress();
+  var ticking = false;
+
+window.addEventListener('scroll', function() {
+  if (!ticking) {
+    window.requestAnimationFrame(function() {
+      updateProgress();
+      ticking = false;
+    });
+
+    ticking = true;
+  }
+}, { passive: true });
 
 
   /* ---------- Mobile nav toggle ---------- */
