@@ -62,9 +62,9 @@
       <p class="lead">A passionate CSE student, educator, creative designer and leader focused on technology, innovation and knowledge sharing.</p>
       <div class="hero-actions">
         <!-- CV placeholder: replace with the real file at cv/Hasibul_Hasan_CV.pdf -->
-        <a class="btn btn-primary" href="cv/Hasibul_Hasan_CV.pdf" download>
-          Download CV
-        </a>
+       <button class="btn btn-primary" onclick="openCV()">
+    Download CV
+</button>
         <a class="btn btn-ghost" href="#projects">View Projects</a>
       </div>
       <div class="social-row">
@@ -744,6 +744,32 @@
 </div>
 
 <script src="script.js"></script>
+<!-- CV Preview Popup -->
 
+<div id="cvModal" class="cv-modal">
+
+    <div class="cv-box">
+
+        <button class="cv-close" onclick="closeCV()">
+            ✕
+        </button>
+
+        <h2>My Resume</h2>
+
+        <iframe 
+        src="cv/Hasibul_Hasan_CV.pdf">
+        </iframe>
+
+
+        <a 
+        href="cv/Hasibul_Hasan_CV.pdf" 
+        download 
+        class="btn btn-primary cv-download">
+            Download CV
+        </a>
+
+    </div>
+
+</div>
 </body>
 </html>
