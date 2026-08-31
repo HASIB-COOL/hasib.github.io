@@ -701,3 +701,73 @@ body.light-mode .theme-toggle{
     background:#111827;
     color:white;
 }
+
+/* CV Popup */
+
+.cv-modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.75);
+    backdrop-filter:blur(10px);
+    z-index:9999;
+    align-items:center;
+    justify-content:center;
+}
+
+
+.cv-box{
+
+    width:90%;
+    max-width:900px;
+    height:90vh;
+
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:25px;
+
+    padding:25px;
+
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+
+}
+
+
+.cv-box h2{
+    text-align:center;
+}
+
+
+.cv-box iframe{
+
+    flex:1;
+    width:100%;
+    border:none;
+    border-radius:15px;
+    background:white;
+
+}
+
+
+.cv-close{
+
+    position:absolute;
+    right:30px;
+    top:25px;
+
+    background:none;
+    color:white;
+
+    border:none;
+    font-size:25px;
+    cursor:pointer;
+
+}
+
+
+.cv-download{
+
+    align-self:center;
+}
