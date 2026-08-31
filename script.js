@@ -141,4 +141,79 @@
     skillObserver.observe(el);
   });
 
+    /* ---------- Contact Form AJAX ---------- */
+
+  var form = document.getElementById('contactForm');
+  var popup = document.getElementById('successPopup');
+  var closePopup = document.getElementById('closePopup');
+  var submitButton = form.querySelector('button[type="submit"]');
+
+  form.addEventListener('submit', function(e) {
+
+    e.preventDefault();
+
+    var originalText = submitButton.textContent;
+
+    submitButton.textContent = 'Sending...';
+    submitButton.disabled = true;
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+
+    .then(function(response) {
+
+      if (response.ok) {
+
+        form.reset();
+
+        popup.classList.add('show');
+
+      } else {
+
+        alert('Oops! Something went wrong. Please try again.');
+
+      }
+
+    })
+
+    .catch(function(error) {
+
+      alert('Network error! Please check your internet connection.');
+
+    })
+
+    .finally(function() {
+
+      submitButton.textContent = originalText;
+      submitButton.disabled = false;
+
+    });
+
+  });
+
+
+  /* ---------- Close Success Popup ---------- */
+
+  closePopup.addEventListener('click', function() {
+
+    popup.classList.remove('show');
+
+  });
+
+
+  /* Close popup when clicking outside */
+
+  popup.addEventListener('click', function(e) {
+
+    if (e.target === popup) {
+      popup.classList.remove('show');
+    }
+
+  });
+
 })();
