@@ -771,3 +771,27 @@ body.light-mode .theme-toggle{
 
     align-self:center;
 }
+
+/* visitor */
+
+.visitor-counter{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+
+    padding:8px 14px;
+    border-radius:50px;
+
+    font-size:0.8rem;
+}
+
+.visitor-counter img{
+    height:20px;
+    width:auto;
+    border-radius:5px;
+}
+
+.visitor-icon{
+    font-size:1rem;
+}
