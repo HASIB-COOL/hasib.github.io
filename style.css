@@ -116,31 +116,32 @@ section{position:relative;padding:120px 24px;}
   -webkit-background-clip:text;background-clip:text;color:transparent;
 }
 
-/* ---------- Optimized Cursor Glow ---------- */
+/* ============================================================
+   2. cursor-glow
+   ============================================================ */
 
-var glow = document.getElementById('cursor-glow');
+#cursor-glow{
+  position:fixed;
+  top:0;
+  left:0;
 
-if (glow && window.matchMedia('(pointer: fine)').matches) {
+  width:320px;
+  height:320px;
 
-  var glowFrame = null;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:1;
 
-  window.addEventListener('mousemove', function(e) {
+  background:radial-gradient(
+    circle,
+    rgba(139,92,246,.12),
+    rgba(49,224,208,.05) 45%,
+    transparent 70%
+  );
 
-    if (glowFrame) return;
-
-    glowFrame = requestAnimationFrame(function() {
-
-      glow.style.transform =
-        'translate(' + e.clientX + 'px, ' + e.clientY + 'px) translate(-50%, -50%)';
-
-      glowFrame = null;
-
-    });
-
-  }, { passive: true });
-
+  transform:translate(-50%,-50%);
+  will-change:transform;
 }
-
 /* ============================================================
    3. SCROLL PROGRESS
    ============================================================ */
