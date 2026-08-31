@@ -68,12 +68,15 @@ section{position:relative;padding:120px 24px;}
 .section-head p{color:var(--text-1);font-size:1.02rem;}
 
 .glass{
-  background:rgba(15, 20, 35, 0.82);
-  border:1px solid var(--glass-border);
-  border-radius:var(--radius-lg);
+  background: rgba(15,20,35,0.65);
+  border: 1px solid rgba(255,255,255,0.12);
 
-  backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.08);
 }
 
 .btn{
