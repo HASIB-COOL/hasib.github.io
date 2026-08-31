@@ -81,13 +81,6 @@
   }, { threshold: 0.4 });
   skillFills.forEach(function(el){ skillObserver.observe(el); });
 
-  /* ---------- Contact form (client-side only, no backend wired up) ---------- */
-  var form = document.getElementById('contactForm');
-  var note = document.getElementById('formNote');
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    note.textContent = 'Thanks — this form is a placeholder. Connect it to your backend or a service like Formspree to receive messages.';
-    note.style.color = 'var(--accent-cyan)';
-  });
+ 
 
 })();
