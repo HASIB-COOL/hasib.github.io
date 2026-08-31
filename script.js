@@ -280,4 +280,17 @@ if(localStorage.getItem("theme")==="light"){
 
 }
 
+  function openCV(){
+
+    document.getElementById("cvModal").style.display="flex";
+
+}
+
+
+function closeCV(){
+
+    document.getElementById("cvModal").style.display="none";
+
+}
+
 })();
