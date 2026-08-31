@@ -635,3 +635,56 @@ footer{padding:56px 24px 34px;border-top:1px solid var(--glass-border);}
     transform: scale(1) translateY(0);
   }
 }
+
+/* ===== Theme Toggle ===== */
+
+.theme-toggle{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,0.15);
+    background:rgba(255,255,255,0.08);
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.3s ease;
+}
+
+.theme-toggle:hover{
+    transform:rotate(15deg) scale(1.1);
+}
+
+
+/* ===== Light Mode ===== */
+
+body.light-mode{
+
+    --bg-0:#f8fafc;
+    --bg-1:#eef2ff;
+    --bg-2:#ffffff;
+
+    --text-0:#111827;
+    --text-1:#374151;
+    --text-2:#6b7280;
+
+    --glass:rgba(255,255,255,.65);
+    --glass-border:rgba(0,0,0,.08);
+
+}
+
+
+body.light-mode .glass{
+    background:rgba(255,255,255,.65);
+    border-color:rgba(0,0,0,.08);
+    box-shadow:
+    0 8px 30px rgba(0,0,0,.08);
+}
+
+
+body.light-mode .theme-toggle{
+    background:#111827;
+    color:white;
+}
