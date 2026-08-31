@@ -68,11 +68,12 @@ section{position:relative;padding:120px 24px;}
 .section-head p{color:var(--text-1);font-size:1.02rem;}
 
 .glass{
-  background:var(--glass);
+  background:rgba(15, 20, 35, 0.82);
   border:1px solid var(--glass-border);
   border-radius:var(--radius-lg);
-  backdrop-filter:blur(18px) saturate(140%);
-  -webkit-backdrop-filter:blur(18px) saturate(140%);
+
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
 }
 
 .btn{
