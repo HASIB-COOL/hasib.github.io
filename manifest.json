@@ -1,0 +1,16 @@
+{
+  "name": "MD. Hasibul Hasan Portfolio",
+  "short_name": "Hasibul Hasan",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#0a0a0f",
+  "description": "Personal portfolio of MD. Hasibul Hasan",
+  "icons": [
+    {
+      "src": "images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
