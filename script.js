@@ -297,62 +297,113 @@ function closeCV(){
 }
 
 
-/* =========================
-   BACK TO TOP
-========================= */
+document.addEventListener("DOMContentLoaded", function () {
 
-const backToTop = document.getElementById("backToTop");
-
-window.addEventListener("scroll", function () {
-    if (window.scrollY > 500) {
-        backToTop.classList.add("show");
-    } else {
-        backToTop.classList.remove("show");
-    }
-}, { passive: true });
-
-backToTop.addEventListener("click", function () {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-});
+    const backToTop = document.getElementById("backToTop");
+    const shareBtn = document.getElementById("shareBtn");
 
 
-/* =========================
-   SHARE PORTFOLIO
-========================= */
+    /* =====================
+       BACK TO TOP
+    ===================== */
 
-const shareBtn = document.getElementById("shareBtn");
+    if (backToTop) {
 
-shareBtn.addEventListener("click", async function () {
+        function toggleBackToTop() {
 
-    const shareData = {
-        title: "MD. Hasibul Hasan | Portfolio",
-        text: "Check out the personal portfolio of MD. Hasibul Hasan.",
-        url: window.location.href
-    };
+            if (window.scrollY > 400) {
+                backToTop.classList.add("show");
+            } else {
+                backToTop.classList.remove("show");
+            }
 
-    if (navigator.share) {
-        try {
-            await navigator.share(shareData);
-        } catch (error) {
-            // User cancelled share
         }
-    } else {
-        try {
-            await navigator.clipboard.writeText(window.location.href);
 
-            const originalHTML = shareBtn.innerHTML;
+        window.addEventListener("scroll", toggleBackToTop, {
+            passive: true
+        });
 
-            shareBtn.innerHTML = '<i class="fa-solid fa-check"></i>';
+        toggleBackToTop();
 
-            setTimeout(() => {
-                shareBtn.innerHTML = originalHTML;
-            }, 1500);
 
-        } catch (error) {
-            console.log("Unable to copy link.");
-        }
+        backToTop.addEventListener("click", function () {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+
     }
+
+
+
+    /* =====================
+       SHARE BUTTON
+    ===================== */
+
+    if (shareBtn) {
+
+        shareBtn.addEventListener("click", async function () {
+
+            const shareData = {
+                title: "MD. Hasibul Hasan | Portfolio",
+                text: "Check out the personal portfolio of MD. Hasibul Hasan.",
+                url: window.location.href
+            };
+
+
+            /* Mobile / supported browser */
+
+            if (navigator.share) {
+
+                try {
+
+                    await navigator.share(shareData);
+
+                } catch (error) {
+
+                    console.log("Share cancelled");
+
+                }
+
+            }
+
+
+            /* Desktop fallback */
+
+            else {
+
+                try {
+
+                    await navigator.clipboard.writeText(window.location.href);
+
+                    const oldHTML = shareBtn.innerHTML;
+
+                    shareBtn.innerHTML = `
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M9 16.2l-3.5-3.5L4.1 14.1 9 19 20 8l-1.4-1.4z"
+                                fill="currentColor">
+                            </path>
+                        </svg>
+                    `;
+
+                    setTimeout(function () {
+                        shareBtn.innerHTML = oldHTML;
+                    }, 1500);
+
+                } catch (error) {
+
+                    alert("Portfolio URL: " + window.location.href);
+
+                }
+
+            }
+
+        });
+
+    }
+
 });
