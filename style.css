@@ -797,20 +797,10 @@ body.light-mode .theme-toggle{
 }
 
 /* mobile scroll*/
-@media (max-width: 768px){
+@media (max-width:768px){
 
-    .scroll-cue{
-        position: relative;
-        margin-top: 35px;
-        bottom: auto;
-        left: auto;
-        transform: none;
-        justify-content: center;
-    }
-
-    .hero{
-        min-height: auto;
-        padding-bottom: 50px;
+    .social-row{
+        margin-bottom: 30px;
     }
 
 }
