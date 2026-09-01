@@ -295,3 +295,64 @@ function closeCV(){
     document.getElementById("cvModal").style.display="none";
 
 }
+
+
+/* =========================
+   BACK TO TOP
+========================= */
+
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", function () {
+    if (window.scrollY > 500) {
+        backToTop.classList.add("show");
+    } else {
+        backToTop.classList.remove("show");
+    }
+}, { passive: true });
+
+backToTop.addEventListener("click", function () {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
+
+/* =========================
+   SHARE PORTFOLIO
+========================= */
+
+const shareBtn = document.getElementById("shareBtn");
+
+shareBtn.addEventListener("click", async function () {
+
+    const shareData = {
+        title: "MD. Hasibul Hasan | Portfolio",
+        text: "Check out the personal portfolio of MD. Hasibul Hasan.",
+        url: window.location.href
+    };
+
+    if (navigator.share) {
+        try {
+            await navigator.share(shareData);
+        } catch (error) {
+            // User cancelled share
+        }
+    } else {
+        try {
+            await navigator.clipboard.writeText(window.location.href);
+
+            const originalHTML = shareBtn.innerHTML;
+
+            shareBtn.innerHTML = '<i class="fa-solid fa-check"></i>';
+
+            setTimeout(() => {
+                shareBtn.innerHTML = originalHTML;
+            }, 1500);
+
+        } catch (error) {
+            console.log("Unable to copy link.");
+        }
+    }
+});
