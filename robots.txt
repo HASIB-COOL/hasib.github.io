@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mdhasibulhasann.github.io/sitemap.xml
