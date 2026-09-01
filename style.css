@@ -795,3 +795,22 @@ body.light-mode .theme-toggle{
 .visitor-icon{
     font-size:1rem;
 }
+
+/* mobile scroll*/
+@media (max-width: 768px){
+
+    .scroll-cue{
+        position: relative;
+        margin-top: 35px;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        justify-content: center;
+    }
+
+    .hero{
+        min-height: auto;
+        padding-bottom: 50px;
+    }
+
+}
